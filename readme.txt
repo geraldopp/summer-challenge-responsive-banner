@@ -1,0 +1,1 @@
+A responsive banner for the mPower Summer Challenge campaign.

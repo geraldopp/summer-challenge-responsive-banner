@@ -1,0 +1,122 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Responsive Parent Portal Header Banners</title>
+	<link rel="stylesheet" type="text/css" href="style.css" />
+	<meta name="viewport" content="width=device-width, initial-scale=1" />
+</head>
+<body style="background-color: #C8EDFF; font-family: sans-serif; color: #535353;">
+	<div style="height: 30px;"></div>
+	<div id="mpower-parent-header-nocontest">
+		<main>
+			<div>
+				<div class="greeting">
+					<h3>Hey There! It's great to have you back</h3>
+					<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+				</div>
+			</div>
+			<div></div>
+			<div>
+				<div class="banner-container">
+					<div class="banner">
+						<div class="banner-content">
+							<h4>Lorem ipsum dolor sit amet, consec tetur</h4>
+							<p>Elit nullam venenatis, diam nec fermentum maximinus, nibh sem.</p>
+							<span>
+								<button class="mpower-btn mpower-btn-small mpower-btn-type2" style="margin: 0 auto;">Enter contest</button>
+							</span>
+						</div>
+						<div class="challenge_logo"></div>
+					</div>
+				</div>
+			</div>
+		</main>
+	</div>
+	<div style="height: 20px;"></div>
+	<div id="mpower-parent-header-contest">
+		<main>
+			<div>
+				<div class="greeting">
+					<h3>Hey There! It's great to have you back</h3>
+					<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+				</div>
+			</div>
+			<div></div>
+			<div>
+				<div class="banner-container">
+					<div class="banner">
+						<div class="banner-content">
+							<div class="countdown-container">
+								<p>Challenge ends September 17th</p>
+								<div id="clockdiv">
+									<div id="countdown">
+										<div class="days count-down-bubble">
+											<span class="days"></span>
+										</div>
+										<div class="hours count-down-bubble">
+											<span class="hours"></span>
+										</div>
+										<div class="minutes count-down-bubble">
+											<span class="minutes"></span>
+										</div>
+										<div class="seconds count-down-bubble">
+											<span class="seconds"></span>
+										</div>
+									</div>
+									<div id="clockdiv-leyend">
+										<div class="smalltext">Day(s)</div>
+										<div class="smalltext">Hours</div>
+										<div class="smalltext">Minutes</div>
+										<div class="smalltext">Seconds</div>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="challenge_logo"></div>
+					</div>
+				</div>
+			</div>
+		</main>
+	</div>
+	
+	<script>
+		// Set the date we're counting down to
+		var countDownDate = new Date("Sept 17, 2021 00:00:00").getTime();
+
+		// Update the count down every 1 second
+		var x = setInterval(function() {
+
+			// Get todays date and time
+			var now = new Date().getTime();
+
+			// Find the distance between now an the count down date
+			var distance = countDownDate - now;
+
+			// Time calculations for days, hours, minutes and seconds
+			var days = Math.floor(distance / (1000 * 60 * 60 * 24));
+			var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+			var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+			var seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+			// Display the result in the element with id="clockdiv"
+			var clock = document.getElementById('clockdiv');
+			var daysSpan = clock.querySelector('span.days');
+			var hoursSpan = clock.querySelector('span.hours');
+			var minutesSpan = clock.querySelector('span.minutes');
+			var secondsSpan = clock.querySelector('span.seconds');
+
+			daysSpan.innerHTML = days.toString();
+			hoursSpan.innerHTML = ('0' + hours).slice(-2);
+			minutesSpan.innerHTML = ('0' + minutes).slice(-2);
+			secondsSpan.innerHTML = ('0' + seconds).slice(-2);
+
+			// If the count down is finished, write some text
+			if (distance < 0) {
+				clearInterval(x);
+				document.getElementById('clockdiv').innerHTML = "EXPIRED";
+			}
+		}, 1000);
+	</script>
+</body>
+</html>
